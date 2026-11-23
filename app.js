@@ -13,6 +13,7 @@ try {
     .command(leer)
     .command(archivos)
     .command(preguntar)
+    .locale('es') // mensajes de yargs en español
     .strict()
     .demandCommand(1, 'Indica un comando. Usa --help para ver cuáles hay.')
     .fail((msg, err, y) => {
