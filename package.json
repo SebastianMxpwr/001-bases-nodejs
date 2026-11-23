@@ -1,17 +1,17 @@
 {
-  "name": "001-bases-node",
-  "version": "1.0.0",
-  "description": "Es pa puros pros",
-  "main": "app.js",
+  "name": "sb",
+  "version": "2.0.0",
+  "description": "CLI personal con utilidades para el flujo de trabajo",
+  "bin": { "sb": "bin/sb.js" },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bin/sb.js",
+    "test": "node --test"
   },
-  "keywords": [
-    "Progamer"
-  ],
+  "engines": { "node": ">=20" },
+  "keywords": ["cli"],
   "author": "Madrid Martinez Sebastian",
   "license": "ISC",
   "dependencies": {
-    "yargs": "^16.0.3"
+    "yargs": "^17.7.2"
   }
 }
