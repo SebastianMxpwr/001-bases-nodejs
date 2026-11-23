@@ -6,6 +6,7 @@ const { hideBin } = require('yargs/helpers');
 yargs(hideBin(process.argv))
   .scriptName('sb')
   .commandDir(path.join(__dirname, '..', 'comandos'))
+  .locale('es')
   .strict()
   .demandCommand(1, 'Indica un comando.')
   .help()
