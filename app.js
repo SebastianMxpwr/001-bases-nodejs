@@ -1,52 +1,30 @@
-const argv = require('yargs')
-    .command('lista', 'imprime en la pantalla la tabla de multiplicar', {
-        base: {
-            demand: true,
-            alias: 'b'
-        },
-        limite: {
-            alias: 'l',
-            default: 10
-        }
-     })
-     .command('crear', 'crea un archivo con la tabla de multiplicar', {
-        base: {
-            demand: true,
-            alias: 'b'
-        },
-        limite: {
-            alias: 'l',
-            default: 10
-        }
-     })
-     .help()
-    .argv;
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import lista from './comandos/lista.js';
+import crear from './comandos/crear.js';
+import leer from './comandos/leer.js';
+import archivos from './comandos/archivos.js';
+import preguntar from './comandos/preguntar.js';
 
-const { alias } = require('yargs');
-const multiplicar = require('./multiplicacion/multiplicacion');
-
-let comando = argv._[0];
-
-let base = argv.base;
-let limite = argv.limite; 
-
-switch( comando ){
-    case 'lista':
-        multiplicar
-        .listarTabla(base, limite)
-        .then()
-        .catch(error => console.log(`Ocurrio un error ${error}` ));
-    break;
-      
-    case 'crear':
-        multiplicar
-          .crearArchivo(base, limite)
-          .then(archivo => console.log(`El archivo ${archivo} se creo, puta barata` ))
-          .catch(error => console.log(`Ocurrio un error ${error}` ));  
-    break;
-    default:
-        console.log('comando no reconocido');
-
+try {
+  await yargs(hideBin(process.argv))
+    .command(lista)
+    .command(crear)
+    .command(leer)
+    .command(archivos)
+    .command(preguntar)
+    .strict()
+    .demandCommand(1, 'Indica un comando. Usa --help para ver cuáles hay.')
+    .fail((msg, err, y) => {
+      // Sin err es un error de uso (argumento faltante, comando desconocido): muestra la ayuda.
+      if (!err) y.showHelp('error');
+      throw err ?? new Error(msg);
+    })
+    .help()
+    .alias('h', 'help')
+    .parseAsync();
+} catch (error) {
+  // Aquí llegan tanto los errores de los handlers como los de uso de yargs.
+  console.error(`Error: ${error.message}`);
+  process.exitCode = 1;
 }
-
- 

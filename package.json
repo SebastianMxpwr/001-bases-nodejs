@@ -1,17 +1,20 @@
 {
   "name": "001-bases-node",
-  "version": "1.0.0",
-  "description": "Es pa puros pros",
+  "version": "2.0.0",
+  "description": "CLI didáctica de tablas de multiplicar para aprender yargs, Node.js y JavaScript modernos",
+  "type": "module",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "^20.19.0 || ^22.12.0 || >=23"
   },
-  "keywords": [
-    "Progamer"
-  ],
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node --test"
+  },
   "author": "Madrid Martinez Sebastian",
   "license": "ISC",
   "dependencies": {
-    "yargs": "^16.0.3"
+    "yargs": "^18.2.0"
   }
 }
