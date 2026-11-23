@@ -1,6 +1,20 @@
-# Tablas de multiplicar: versión didáctica
+# 📚 Tablas de multiplicar: versión didáctica
 
 CLI pequeña para aprender yargs, Node.js y JavaScript modernos. Genera tablas de multiplicar, las imprime, las guarda y las lee.
+
+![Node](https://img.shields.io/badge/node-%3E%3D20.19-339933?logo=node.js&logoColor=white)
+![yargs](https://img.shields.io/badge/yargs-18-blue)
+![ESM](https://img.shields.io/badge/m%C3%B3dulos-ESM-f7df1e)
+![Licencia](https://img.shields.io/badge/licencia-ISC-lightgrey)
+
+## Dos ramas, dos propósitos
+
+| Rama | Para qué sirve |
+|---|---|
+| [`master`](../../tree/master) | Herramienta para nuestro flujo de trabajo (*Rediseños de Apps viejas*): el CLI `sb`. |
+| `aprendizaje` (esta) | Versión didáctica para aprender yargs, Node y JavaScript moderno. |
+
+Nació en 2020 como ejercicio con yargs 16; esta rama es ese ejercicio modernizado.
 
 ## Requisitos
 
